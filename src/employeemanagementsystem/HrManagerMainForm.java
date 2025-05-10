@@ -1,0 +1,1184 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+package employeemanagementsystem;
+
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Font;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+
+/**
+ *
+ * @author Amasha
+ */
+public class HrManagerMainForm extends javax.swing.JFrame {
+
+    /**
+     * Creates new form hrManagerFrame
+     */
+    public HrManagerMainForm() {
+        initComponents();
+        
+          // Set background color for department table 
+        departmentTable.setBackground(Color.WHITE);
+        
+        // Apply custom table header renderer for department table
+        departmentTable.getTableHeader().setDefaultRenderer(new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value,
+                    boolean isSelected, boolean hasFocus, int row, int column) {
+                Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                
+                // Set font, background color, and foreground color
+                c.setFont(new Font("Segoe UI", Font.BOLD, 14));
+                c.setBackground(new Color(255, 255, 255));
+                c.setForeground(new Color(97, 98, 99));
+                
+                return c;
+            }
+        });
+        
+          // Set background color for search table 
+        searchTable.setBackground(Color.WHITE);
+        
+        // Apply custom table header renderer for search table
+        searchTable.getTableHeader().setDefaultRenderer(new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value,
+                    boolean isSelected, boolean hasFocus, int row, int column) {
+                Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                
+                // Set font, background color, and foreground color
+                c.setFont(new Font("Segoe UI", Font.BOLD, 14));
+                c.setBackground(new Color(255, 255, 255));
+                c.setForeground(new Color(97, 98, 99));
+                
+                return c;
+            }
+        });
+        
+        // Set background color for employee table 
+        employeeTable.setBackground(Color.WHITE);
+        
+        // Apply custom table header renderer for employee table
+        employeeTable.getTableHeader().setDefaultRenderer(new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value,
+                    boolean isSelected, boolean hasFocus, int row, int column) {
+                Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                
+                // Set font, background color, and foreground color
+                c.setFont(new Font("Segoe UI", Font.BOLD, 14));
+                c.setBackground(new Color(255, 255, 255));
+                c.setForeground(new Color(97, 98, 99));
+                
+                return c;
+            }
+        });
+        
+          // Set background color for designation table 
+        designationTable.setBackground(Color.WHITE);
+        
+        // Apply custom table header renderer for desigantion table
+        designationTable.getTableHeader().setDefaultRenderer(new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value,
+                    boolean isSelected, boolean hasFocus, int row, int column) {
+                Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                
+                // Set font, background color, and foreground color
+                c.setFont(new Font("Segoe UI", Font.BOLD, 14));
+                c.setBackground(new Color(255, 255, 255));
+                c.setForeground(new Color(97, 98, 99));
+                
+                return c;
+            }
+        });
+        
+        
+    }
+    
+    //Method for load subpanels
+     public void LoadSubPanels(JPanel subPanel) {
+        hrManagerLayeredPane.removeAll();
+        hrManagerLayeredPane.add(subPanel);
+        hrManagerLayeredPane.repaint();  
+        hrManagerLayeredPane.revalidate();
+    }
+          
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        sidesDesignPanel = new javax.swing.JPanel();
+        departmentManagementButton = new javax.swing.JButton();
+        designationManagementButton = new javax.swing.JButton();
+        employeeManagementButton = new javax.swing.JButton();
+        personIconLabel = new javax.swing.JLabel();
+        welcomeHRManagerLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        searchButton = new javax.swing.JButton();
+        hrManagerLayeredPane = new javax.swing.JLayeredPane();
+        departmentPanel = new javax.swing.JPanel();
+        departmentNameLabel = new javax.swing.JLabel();
+        departmentNameTextField = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        departmentTable = new javax.swing.JTable();
+        departmentManagementLabel = new javax.swing.JLabel();
+        closeButton1 = new javax.swing.JButton();
+        deoartmentIdLabel = new javax.swing.JLabel();
+        departmentIdTextField = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        addNewDepartmentButton = new javax.swing.JButton();
+        designationPanel = new javax.swing.JPanel();
+        designationManagementLabel = new javax.swing.JLabel();
+        designationNameLabel = new javax.swing.JLabel();
+        designationNameTextField = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        designationTable = new javax.swing.JTable();
+        closeButton2 = new javax.swing.JButton();
+        designationIdLabel = new javax.swing.JLabel();
+        designationIdTextField = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        addNewDesignationButton = new javax.swing.JButton();
+        employeePanel = new javax.swing.JPanel();
+        employeeManagementLabel = new javax.swing.JLabel();
+        employeeFirstNameLabel = new javax.swing.JLabel();
+        employeeFNameTextField = new javax.swing.JTextField();
+        addNewEmployeeButton = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        employeeTable = new javax.swing.JTable();
+        employeeLastNameLabel = new javax.swing.JLabel();
+        employeeEPFLabel = new javax.swing.JLabel();
+        employeedepartmentLabel = new javax.swing.JLabel();
+        employeeDesignationLabel = new javax.swing.JLabel();
+        employeeLNameTextField = new javax.swing.JTextField();
+        employeeEPFTextField = new javax.swing.JTextField();
+        employeeDepNameTextField = new javax.swing.JTextField();
+        employeeDesiNameTextField = new javax.swing.JTextField();
+        closeButton4 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        searchPanel = new javax.swing.JPanel();
+        searchTextField = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        closeButton3 = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        searchTable = new javax.swing.JTable();
+        jPanel4 = new javax.swing.JPanel();
+        searchButton2 = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(1030, 630));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        sidesDesignPanel.setBackground(new java.awt.Color(12, 192, 223));
+
+        departmentManagementButton.setBackground(new java.awt.Color(12, 192, 223));
+        departmentManagementButton.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
+        departmentManagementButton.setForeground(new java.awt.Color(255, 255, 255));
+        departmentManagementButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/111.png"))); // NOI18N
+        departmentManagementButton.setText("Department Management");
+        departmentManagementButton.setBorder(null);
+        departmentManagementButton.setBorderPainted(false);
+        departmentManagementButton.setContentAreaFilled(false);
+        departmentManagementButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                departmentManagementButtonMouseEntered(evt);
+            }
+        });
+        departmentManagementButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                departmentManagementButtonActionPerformed(evt);
+            }
+        });
+
+        designationManagementButton.setBackground(new java.awt.Color(12, 192, 223));
+        designationManagementButton.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
+        designationManagementButton.setForeground(new java.awt.Color(255, 255, 255));
+        designationManagementButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/111.png"))); // NOI18N
+        designationManagementButton.setText("Designation Management");
+        designationManagementButton.setBorder(null);
+        designationManagementButton.setBorderPainted(false);
+        designationManagementButton.setContentAreaFilled(false);
+        designationManagementButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                designationManagementButtonActionPerformed(evt);
+            }
+        });
+
+        employeeManagementButton.setBackground(new java.awt.Color(12, 192, 223));
+        employeeManagementButton.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
+        employeeManagementButton.setForeground(new java.awt.Color(255, 255, 255));
+        employeeManagementButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/111.png"))); // NOI18N
+        employeeManagementButton.setText("Employee Management");
+        employeeManagementButton.setBorder(null);
+        employeeManagementButton.setBorderPainted(false);
+        employeeManagementButton.setContentAreaFilled(false);
+        employeeManagementButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                employeeManagementButtonActionPerformed(evt);
+            }
+        });
+
+        personIconLabel.setBackground(new java.awt.Color(255, 255, 255));
+        personIconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/2(2).png"))); // NOI18N
+
+        welcomeHRManagerLabel2.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
+        welcomeHRManagerLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        welcomeHRManagerLabel2.setText("HR Manager");
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Segoe UI Historic", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("----------------------------------------");
+
+        searchButton.setBackground(new java.awt.Color(12, 192, 223));
+        searchButton.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
+        searchButton.setForeground(new java.awt.Color(255, 255, 255));
+        searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/113.png"))); // NOI18N
+        searchButton.setText("Search");
+        searchButton.setBorder(null);
+        searchButton.setBorderPainted(false);
+        searchButton.setContentAreaFilled(false);
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout sidesDesignPanelLayout = new javax.swing.GroupLayout(sidesDesignPanel);
+        sidesDesignPanel.setLayout(sidesDesignPanelLayout);
+        sidesDesignPanelLayout.setHorizontalGroup(
+            sidesDesignPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sidesDesignPanelLayout.createSequentialGroup()
+                .addGroup(sidesDesignPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(sidesDesignPanelLayout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addGroup(sidesDesignPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(welcomeHRManagerLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(personIconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(sidesDesignPanelLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(sidesDesignPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(departmentManagementButton, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
+                            .addComponent(designationManagementButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(sidesDesignPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(employeeManagementButton, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(sidesDesignPanelLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(sidesDesignPanelLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(searchButton)))
+                .addContainerGap(10, Short.MAX_VALUE))
+        );
+        sidesDesignPanelLayout.setVerticalGroup(
+            sidesDesignPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sidesDesignPanelLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(personIconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(welcomeHRManagerLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(46, 46, 46)
+                .addComponent(searchButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(departmentManagementButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(designationManagementButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(employeeManagementButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        getContentPane().add(sidesDesignPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 630));
+
+        hrManagerLayeredPane.setLayout(new java.awt.CardLayout());
+
+        departmentPanel.setBackground(new java.awt.Color(248, 255, 255));
+        departmentPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 204)));
+        departmentPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        departmentNameLabel.setBackground(new java.awt.Color(255, 255, 255));
+        departmentNameLabel.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        departmentNameLabel.setText("Department Name");
+        departmentPanel.add(departmentNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 140, 40));
+
+        departmentNameTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 204)));
+        departmentNameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                departmentNameTextFieldActionPerformed(evt);
+            }
+        });
+        departmentPanel.add(departmentNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 680, 20));
+
+        departmentTable.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        departmentTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"", null},
+                {"", null},
+                {"", null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Department ID", "Department List"
+            }
+        ));
+        departmentTable.setGridColor(new java.awt.Color(204, 204, 255));
+        departmentTable.setSelectionBackground(new java.awt.Color(255, 153, 153));
+        departmentTable.setShowHorizontalLines(true);
+        departmentTable.setShowVerticalLines(true);
+        jScrollPane1.setViewportView(departmentTable);
+
+        departmentPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 710, 190));
+
+        departmentManagementLabel.setBackground(new java.awt.Color(255, 255, 255));
+        departmentManagementLabel.setFont(new java.awt.Font("Microsoft JhengHei", 1, 24)); // NOI18N
+        departmentManagementLabel.setForeground(new java.awt.Color(12, 192, 223));
+        departmentManagementLabel.setText("Department Management");
+        departmentPanel.add(departmentManagementLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 320, 50));
+
+        closeButton1.setBackground(new java.awt.Color(255, 0, 0));
+        closeButton1.setFont(new java.awt.Font("Microsoft YaHei", 1, 14)); // NOI18N
+        closeButton1.setForeground(new java.awt.Color(255, 255, 255));
+        closeButton1.setText("X");
+        closeButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        closeButton1.setMaximumSize(new java.awt.Dimension(26, 26));
+        closeButton1.setPreferredSize(new java.awt.Dimension(26, 26));
+        closeButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButton1ActionPerformed(evt);
+            }
+        });
+        departmentPanel.add(closeButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 30, -1, -1));
+
+        deoartmentIdLabel.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        deoartmentIdLabel.setText("Department ID");
+        departmentPanel.add(deoartmentIdLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
+
+        departmentIdTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 204)));
+        departmentPanel.add(departmentIdTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 680, 20));
+
+        jPanel1.setBackground(new java.awt.Color(47, 128, 174));
+        jPanel1.setPreferredSize(new java.awt.Dimension(205, 32));
+
+        addNewDepartmentButton.setBackground(new java.awt.Color(47, 128, 174));
+        addNewDepartmentButton.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
+        addNewDepartmentButton.setForeground(new java.awt.Color(255, 255, 255));
+        addNewDepartmentButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/312.png"))); // NOI18N
+        addNewDepartmentButton.setText("Add New Department");
+        addNewDepartmentButton.setBorderPainted(false);
+        addNewDepartmentButton.setContentAreaFilled(false);
+        addNewDepartmentButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        addNewDepartmentButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addNewDepartmentButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addNewDepartmentButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addNewDepartmentButtonMouseExited(evt);
+            }
+        });
+        addNewDepartmentButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addNewDepartmentButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(addNewDepartmentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(addNewDepartmentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        departmentPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 282, 250, 40));
+
+        hrManagerLayeredPane.add(departmentPanel, "card2");
+
+        designationPanel.setBackground(new java.awt.Color(248, 255, 255));
+        designationPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 204)));
+        designationPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        designationManagementLabel.setBackground(new java.awt.Color(255, 255, 255));
+        designationManagementLabel.setFont(new java.awt.Font("Microsoft JhengHei", 1, 24)); // NOI18N
+        designationManagementLabel.setForeground(new java.awt.Color(12, 192, 223));
+        designationManagementLabel.setText("Designation Management");
+        designationPanel.add(designationManagementLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 330, 40));
+
+        designationNameLabel.setBackground(new java.awt.Color(255, 255, 255));
+        designationNameLabel.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        designationNameLabel.setText("Designation Name");
+        designationPanel.add(designationNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 190, 30));
+
+        designationNameTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 204)));
+        designationPanel.add(designationNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 680, 20));
+
+        designationTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Designation ID ", "Designation List"
+            }
+        ));
+        designationTable.setGridColor(new java.awt.Color(204, 204, 255));
+        designationTable.setSelectionBackground(new java.awt.Color(255, 153, 153));
+        designationTable.setShowHorizontalLines(true);
+        designationTable.setShowVerticalLines(true);
+        jScrollPane2.setViewportView(designationTable);
+
+        designationPanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 710, 240));
+
+        closeButton2.setBackground(new java.awt.Color(255, 0, 0));
+        closeButton2.setFont(new java.awt.Font("Microsoft YaHei", 1, 14)); // NOI18N
+        closeButton2.setForeground(new java.awt.Color(255, 255, 255));
+        closeButton2.setText("X");
+        closeButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButton2ActionPerformed(evt);
+            }
+        });
+        designationPanel.add(closeButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 30, -1, -1));
+
+        designationIdLabel.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        designationIdLabel.setText("Designation ID");
+        designationPanel.add(designationIdLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
+
+        designationIdTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 204)));
+        designationPanel.add(designationIdTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 680, -1));
+
+        jPanel2.setBackground(new java.awt.Color(47, 128, 174));
+
+        addNewDesignationButton.setBackground(new java.awt.Color(47, 128, 174));
+        addNewDesignationButton.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
+        addNewDesignationButton.setForeground(new java.awt.Color(255, 255, 255));
+        addNewDesignationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/312.png"))); // NOI18N
+        addNewDesignationButton.setText("Add New Designation");
+        addNewDesignationButton.setContentAreaFilled(false);
+        addNewDesignationButton.setPreferredSize(new java.awt.Dimension(205, 32));
+        addNewDesignationButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addNewDesignationButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addNewDesignationButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addNewDesignationButtonMouseExited(evt);
+            }
+        });
+        addNewDesignationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addNewDesignationButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(addNewDesignationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(addNewDesignationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        designationPanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 270, 260, 40));
+
+        hrManagerLayeredPane.add(designationPanel, "card3");
+
+        employeePanel.setBackground(new java.awt.Color(248, 255, 255));
+        employeePanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 204)));
+        employeePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        employeeManagementLabel.setBackground(new java.awt.Color(255, 255, 255));
+        employeeManagementLabel.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
+        employeeManagementLabel.setForeground(new java.awt.Color(12, 192, 223));
+        employeeManagementLabel.setText("Employee Management");
+        employeePanel.add(employeeManagementLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 350, 50));
+
+        employeeFirstNameLabel.setBackground(new java.awt.Color(255, 255, 255));
+        employeeFirstNameLabel.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        employeeFirstNameLabel.setText("Employee First Name");
+        employeePanel.add(employeeFirstNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 160, 30));
+
+        employeeFNameTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 204)));
+        employeePanel.add(employeeFNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 280, -1));
+
+        addNewEmployeeButton.setBackground(new java.awt.Color(47, 128, 174));
+        addNewEmployeeButton.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
+        addNewEmployeeButton.setForeground(new java.awt.Color(255, 255, 255));
+        addNewEmployeeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/312.png"))); // NOI18N
+        addNewEmployeeButton.setText("Add New Employee");
+        addNewEmployeeButton.setBorderPainted(false);
+        addNewEmployeeButton.setContentAreaFilled(false);
+        addNewEmployeeButton.setPreferredSize(new java.awt.Dimension(205, 32));
+        addNewEmployeeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addNewEmployeeButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addNewEmployeeButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addNewEmployeeButtonMouseExited(evt);
+            }
+        });
+        addNewEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addNewEmployeeButtonActionPerformed(evt);
+            }
+        });
+        employeePanel.add(addNewEmployeeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, 240, 40));
+
+        jScrollPane3.setBackground(new java.awt.Color(255, 255, 255));
+
+        employeeTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
+        employeeTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "First Name ", "Last Name", "EPF Number ", "Department ", "Designation"
+            }
+        ));
+        employeeTable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        employeeTable.setGridColor(new java.awt.Color(204, 204, 255));
+        employeeTable.setRowHeight(25);
+        employeeTable.setSelectionBackground(new java.awt.Color(255, 153, 153));
+        employeeTable.setShowHorizontalLines(true);
+        employeeTable.setShowVerticalLines(true);
+        employeeTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane3.setViewportView(employeeTable);
+
+        employeePanel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 710, 230));
+
+        employeeLastNameLabel.setBackground(new java.awt.Color(255, 255, 255));
+        employeeLastNameLabel.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        employeeLastNameLabel.setText("Employee Last Name");
+        employeePanel.add(employeeLastNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, 20));
+
+        employeeEPFLabel.setBackground(new java.awt.Color(255, 255, 255));
+        employeeEPFLabel.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        employeeEPFLabel.setText("Employe EPF No:");
+        employeePanel.add(employeeEPFLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 140, 10));
+
+        employeedepartmentLabel.setBackground(new java.awt.Color(255, 255, 255));
+        employeedepartmentLabel.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        employeedepartmentLabel.setText("Department Name");
+        employeePanel.add(employeedepartmentLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, 140, 30));
+
+        employeeDesignationLabel.setBackground(new java.awt.Color(255, 255, 255));
+        employeeDesignationLabel.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        employeeDesignationLabel.setText("Designation Name");
+        employeePanel.add(employeeDesignationLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, -1, -1));
+
+        employeeLNameTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 204)));
+        employeePanel.add(employeeLNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 280, 20));
+
+        employeeEPFTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 204)));
+        employeeEPFTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                employeeEPFTextFieldActionPerformed(evt);
+            }
+        });
+        employeePanel.add(employeeEPFTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 280, 20));
+
+        employeeDepNameTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 204)));
+        employeeDepNameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                employeeDepNameTextFieldActionPerformed(evt);
+            }
+        });
+        employeePanel.add(employeeDepNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 280, 20));
+
+        employeeDesiNameTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 204)));
+        employeeDesiNameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                employeeDesiNameTextFieldActionPerformed(evt);
+            }
+        });
+        employeePanel.add(employeeDesiNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, 280, 20));
+
+        closeButton4.setBackground(new java.awt.Color(255, 0, 0));
+        closeButton4.setFont(new java.awt.Font("Microsoft YaHei", 1, 14)); // NOI18N
+        closeButton4.setForeground(new java.awt.Color(255, 255, 255));
+        closeButton4.setText("X");
+        closeButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButton4ActionPerformed(evt);
+            }
+        });
+        employeePanel.add(closeButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 30, -1, -1));
+
+        jPanel3.setBackground(new java.awt.Color(47, 128, 174));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 240, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        employeePanel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, 240, 40));
+
+        hrManagerLayeredPane.add(employeePanel, "card4");
+
+        searchPanel.setBackground(new java.awt.Color(248, 255, 255));
+        searchPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        searchTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(12, 192, 223)));
+        searchPanel.add(searchTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 640, 30));
+
+        jLabel2.setFont(new java.awt.Font("Microsoft JhengHei", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(12, 192, 223));
+        jLabel2.setText("Search Here,");
+        searchPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 290, 60));
+
+        closeButton3.setBackground(new java.awt.Color(255, 0, 0));
+        closeButton3.setFont(new java.awt.Font("Microsoft YaHei", 1, 14)); // NOI18N
+        closeButton3.setForeground(new java.awt.Color(255, 255, 255));
+        closeButton3.setText("X");
+        closeButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        closeButton3.setPreferredSize(new java.awt.Dimension(26, 26));
+        closeButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButton3ActionPerformed(evt);
+            }
+        });
+        searchPanel.add(closeButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, -1, -1));
+
+        jScrollPane5.setBackground(new java.awt.Color(255, 255, 255));
+
+        searchTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
+        searchTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "First Name ", "Last Name", "EPF Number ", "Department ", "Designation"
+            }
+        ));
+        searchTable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        searchTable.setGridColor(new java.awt.Color(204, 204, 255));
+        searchTable.setRowHeight(25);
+        searchTable.setSelectionBackground(new java.awt.Color(255, 153, 153));
+        searchTable.setShowHorizontalLines(true);
+        searchTable.setShowVerticalLines(true);
+        searchTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane5.setViewportView(searchTable);
+
+        searchPanel.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 710, 230));
+
+        jPanel4.setBackground(new java.awt.Color(47, 128, 174));
+
+        searchButton2.setBackground(new java.awt.Color(47, 128, 174));
+        searchButton2.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
+        searchButton2.setForeground(new java.awt.Color(255, 255, 255));
+        searchButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/452.png"))); // NOI18N
+        searchButton2.setText("Search");
+        searchButton2.setBorder(null);
+        searchButton2.setBorderPainted(false);
+        searchButton2.setContentAreaFilled(false);
+        searchButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchButton2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                searchButton2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                searchButton2MouseExited(evt);
+            }
+        });
+        searchButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(searchButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(searchButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        searchPanel.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 240, 160, 30));
+
+        hrManagerLayeredPane.add(searchPanel, "card5");
+
+        getContentPane().add(hrManagerLayeredPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(281, 0, 750, 630));
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void departmentManagementButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_departmentManagementButtonActionPerformed
+        // To load department panel:
+        LoadSubPanels(departmentPanel);
+    }//GEN-LAST:event_departmentManagementButtonActionPerformed
+
+    private void addNewDepartmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewDepartmentButtonActionPerformed
+        // Retrieve data from GUI components
+        String departmentID = departmentIdTextField.getText();
+        String departmentName = departmentNameTextField.getText();
+        
+         // Create Department object
+        Department department = new Department();
+        department.setDepartmentID(departmentID);
+        department.setDepartmentName(departmentName);
+        
+        // Clear the table model to remove existing data
+        DefaultTableModel model = (DefaultTableModel) departmentTable.getModel();
+        model.setRowCount(0); // Clear existing rows
+        
+        //To set table model in fileManagementLogic class
+        fileManagementLogics.setTableModel((DefaultTableModel) departmentTable.getModel());
+         
+        // Save department data to file
+        fileManagementLogics.saveDepartmentToFile(department);
+      
+    }//GEN-LAST:event_addNewDepartmentButtonActionPerformed
+
+    private void employeeEPFTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeEPFTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_employeeEPFTextFieldActionPerformed
+
+    private void employeeDepNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeDepNameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_employeeDepNameTextFieldActionPerformed
+
+    private void addNewEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewEmployeeButtonActionPerformed
+        // Retrieve data from GUI components
+        String employeeFName  = employeeFNameTextField.getText();
+        String employeeLName = employeeLNameTextField.getText();
+        String employeeEpf = employeeEPFTextField.getText();
+        String employeeDep = employeeDepNameTextField.getText();
+        String employeeDes = employeeDesiNameTextField.getText();
+        
+         // Create Employee object
+        Employee employee = new Employee();
+        employee.setFirstName(employeeFName);
+        employee.setLastName(employeeLName);
+        employee.setEpf(employeeEpf);
+        employee.setDepartment(employeeDep);
+        employee.setDesignation(employeeDes);
+        
+        // Clear the table model to remove existing data
+        DefaultTableModel model = (DefaultTableModel) employeeTable.getModel();
+        model.setRowCount(0); // Clear existing rows
+        
+        //To set table model in fileManagementLogic class
+        fileManagementLogics.setEmployeeTableModel((DefaultTableModel) employeeTable.getModel());
+    
+        // Save department data to file
+        fileManagementLogics.saveEmployeeToFile(employee);
+       
+    }//GEN-LAST:event_addNewEmployeeButtonActionPerformed
+
+    private void designationManagementButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_designationManagementButtonActionPerformed
+        // To load designation panel:
+         LoadSubPanels(designationPanel);
+    }//GEN-LAST:event_designationManagementButtonActionPerformed
+
+    private void employeeManagementButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeManagementButtonActionPerformed
+        // To load employee panel:
+         LoadSubPanels(employeePanel);
+    }//GEN-LAST:event_employeeManagementButtonActionPerformed
+
+    private void addNewDesignationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewDesignationButtonActionPerformed
+        // Retrieve data from GUI components
+        String designationID = designationIdTextField.getText();
+        String designationName =designationNameTextField.getText();
+        
+         // Create Department object
+        Designation designation = new Designation();
+        designation.setDesignationID(designationID);
+        designation.setDesignationName(designationName);
+        
+        // Clear the table model to remove existing data
+        DefaultTableModel model = (DefaultTableModel) designationTable.getModel();
+        model.setRowCount(0); // Clear existing rows
+        
+        //To set table model in fileManagementLogic class
+        fileManagementLogics.setDesignationTableModel((DefaultTableModel) designationTable.getModel());
+    
+        // Save department data to file
+        fileManagementLogics.saveDesignationToFile(designation);
+      
+    }//GEN-LAST:event_addNewDesignationButtonActionPerformed
+
+    private void employeeDesiNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeDesiNameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_employeeDesiNameTextFieldActionPerformed
+
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        // TODO add your handling code here:
+        LoadSubPanels(searchPanel);
+    }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void searchButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButton2ActionPerformed
+       
+    // Retrieve the search query entered by the user
+    String searchQuery = searchTextField.getText().trim().toLowerCase(); // Trim whitespace and convert to lowercase for case-insensitive search
+    
+    // Clear existing rows from the search table
+    DefaultTableModel model = (DefaultTableModel) searchTable.getModel();
+    model.setRowCount(0);
+
+    // Read data from the file and search for matching rows
+    try (BufferedReader reader = new BufferedReader(new FileReader("employee_data.txt"))) {
+        String line;
+        while ((line = reader.readLine()) != null) {
+            String[] data = line.split(",");
+            boolean matchFound = false;
+            // Iterate through each field and check if it contains the search query
+            for (String field : data) {
+                String[] fieldValue = field.split("="); // Split field by "=" to separate field name and value
+                if (fieldValue.length == 2) { // Ensure there's a field name and value
+                    String value = fieldValue[1].trim(); // Extract the value part
+                    if (value.toLowerCase().contains(searchQuery)) {
+                        matchFound = true;
+                        break; // Stop searching if a match is found in this row
+                    }
+                }
+            }
+            // If a match is found, add the row (values only) to the search result table
+            if (matchFound) {
+                // Extract the values (without the field names) and add them to the table model
+                Object[] rowData = new Object[data.length];
+                for (int i = 0; i < data.length; i++) {
+                    String[] fieldValue = data[i].split("=");
+                    rowData[i] = fieldValue.length == 2 ? fieldValue[1].trim() : ""; // Extract value part or set empty string if field name is missing
+                }
+                model.addRow(rowData);
+            }
+        }
+    } catch (IOException e) {
+        JOptionPane.showMessageDialog(null, "Error while searching: ", "Search error", JOptionPane.ERROR_MESSAGE);
+    }
+
+        
+    }//GEN-LAST:event_searchButton2ActionPerformed
+
+    private void closeButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButton4ActionPerformed
+        //To back to login page
+       new LoginFrameForm().setVisible(true);
+    }//GEN-LAST:event_closeButton4ActionPerformed
+
+    private void closeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButton1ActionPerformed
+        //To back to login page
+        new LoginFrameForm().setVisible(true);
+      
+    }//GEN-LAST:event_closeButton1ActionPerformed
+
+    private void closeButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButton2ActionPerformed
+        //To back to login page
+       new LoginFrameForm().setVisible(true);
+    }//GEN-LAST:event_closeButton2ActionPerformed
+
+    private void closeButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButton3ActionPerformed
+        //To back to login page
+        new LoginFrameForm().setVisible(true);
+    }//GEN-LAST:event_closeButton3ActionPerformed
+
+    private void departmentNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_departmentNameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_departmentNameTextFieldActionPerformed
+
+    private void addNewDepartmentButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addNewDepartmentButtonMouseEntered
+        // TO set background colours
+        addNewDepartmentButton.setBackground(new Color(204, 204, 204));
+        jPanel1.setBackground(new Color(204, 204, 204));
+    }//GEN-LAST:event_addNewDepartmentButtonMouseEntered
+
+    private void addNewDepartmentButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addNewDepartmentButtonMouseExited
+         // TO set background colours
+        addNewDepartmentButton.setBackground(new Color(47, 128, 174));
+        jPanel1.setBackground(new Color(47, 128, 174));
+    }//GEN-LAST:event_addNewDepartmentButtonMouseExited
+
+    private void addNewDesignationButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addNewDesignationButtonMouseEntered
+        // TO set background colours
+        addNewDesignationButton.setBackground(new Color(204, 204, 204));
+        jPanel2.setBackground(new Color(204, 204, 204));
+    }//GEN-LAST:event_addNewDesignationButtonMouseEntered
+
+    private void addNewDesignationButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addNewDesignationButtonMouseExited
+         // TO set background colours
+        addNewDesignationButton.setBackground(new Color(47, 128, 174));
+        jPanel2.setBackground(new Color(47, 128, 174));
+    }//GEN-LAST:event_addNewDesignationButtonMouseExited
+
+    private void addNewDesignationButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addNewDesignationButtonMouseClicked
+        // TO set background colours
+        addNewDesignationButton.setBackground(new Color(0, 0, 51));
+        jPanel2.setBackground(new Color(0, 0, 51));
+    }//GEN-LAST:event_addNewDesignationButtonMouseClicked
+
+    private void addNewDepartmentButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addNewDepartmentButtonMouseClicked
+         // TO set background colours
+        addNewDepartmentButton.setBackground(new Color(0, 0, 51));
+        jPanel1.setBackground(new Color(0, 0, 51));
+    }//GEN-LAST:event_addNewDepartmentButtonMouseClicked
+
+    private void addNewEmployeeButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addNewEmployeeButtonMouseEntered
+       // TO set background colours
+        addNewEmployeeButton.setBackground(new Color(204, 204, 204));
+        jPanel3.setBackground(new Color(204, 204, 204));
+    }//GEN-LAST:event_addNewEmployeeButtonMouseEntered
+
+    private void addNewEmployeeButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addNewEmployeeButtonMouseExited
+        // TO set background colours
+        addNewEmployeeButton.setBackground(new Color(47, 128, 174));
+        jPanel3.setBackground(new Color(47, 128, 174));
+    }//GEN-LAST:event_addNewEmployeeButtonMouseExited
+
+    private void addNewEmployeeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addNewEmployeeButtonMouseClicked
+        // TO set background colours
+        addNewEmployeeButton.setBackground(new Color(0, 0, 51));
+        jPanel3.setBackground(new Color(0, 0, 51));
+    }//GEN-LAST:event_addNewEmployeeButtonMouseClicked
+
+    private void searchButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchButton2MouseEntered
+         // TO set background colours
+        searchButton2.setBackground(new Color(204, 204, 204));
+        jPanel4.setBackground(new Color(204, 204, 204));
+    }//GEN-LAST:event_searchButton2MouseEntered
+
+    private void searchButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchButton2MouseExited
+        // TO set background colours
+        searchButton2.setBackground(new Color(47, 128, 174));
+        jPanel4.setBackground(new Color(47, 128, 174));
+    }//GEN-LAST:event_searchButton2MouseExited
+
+    private void searchButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchButton2MouseClicked
+         // TO set background colours
+        searchButton2.setBackground(new Color(0, 0, 51));
+        jPanel4.setBackground(new Color(0, 0, 51));
+    }//GEN-LAST:event_searchButton2MouseClicked
+
+    private void departmentManagementButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_departmentManagementButtonMouseEntered
+         // TO set background colours
+        departmentManagementButton.setBackground(new Color(204, 204, 204));
+    }//GEN-LAST:event_departmentManagementButtonMouseEntered
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(HrManagerMainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(HrManagerMainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(HrManagerMainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(HrManagerMainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new HrManagerMainForm().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addNewDepartmentButton;
+    private javax.swing.JButton addNewDesignationButton;
+    private javax.swing.JButton addNewEmployeeButton;
+    private javax.swing.JButton closeButton1;
+    private javax.swing.JButton closeButton2;
+    private javax.swing.JButton closeButton3;
+    private javax.swing.JButton closeButton4;
+    private javax.swing.JLabel deoartmentIdLabel;
+    private javax.swing.JTextField departmentIdTextField;
+    private javax.swing.JButton departmentManagementButton;
+    private javax.swing.JLabel departmentManagementLabel;
+    private javax.swing.JLabel departmentNameLabel;
+    private javax.swing.JTextField departmentNameTextField;
+    private javax.swing.JPanel departmentPanel;
+    private javax.swing.JTable departmentTable;
+    private javax.swing.JLabel designationIdLabel;
+    private javax.swing.JTextField designationIdTextField;
+    private javax.swing.JButton designationManagementButton;
+    private javax.swing.JLabel designationManagementLabel;
+    private javax.swing.JLabel designationNameLabel;
+    private javax.swing.JTextField designationNameTextField;
+    private javax.swing.JPanel designationPanel;
+    private javax.swing.JTable designationTable;
+    private javax.swing.JTextField employeeDepNameTextField;
+    private javax.swing.JTextField employeeDesiNameTextField;
+    private javax.swing.JLabel employeeDesignationLabel;
+    private javax.swing.JLabel employeeEPFLabel;
+    private javax.swing.JTextField employeeEPFTextField;
+    private javax.swing.JTextField employeeFNameTextField;
+    private javax.swing.JLabel employeeFirstNameLabel;
+    private javax.swing.JTextField employeeLNameTextField;
+    private javax.swing.JLabel employeeLastNameLabel;
+    private javax.swing.JButton employeeManagementButton;
+    private javax.swing.JLabel employeeManagementLabel;
+    private javax.swing.JPanel employeePanel;
+    private javax.swing.JTable employeeTable;
+    private javax.swing.JLabel employeedepartmentLabel;
+    private javax.swing.JLayeredPane hrManagerLayeredPane;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JLabel personIconLabel;
+    private javax.swing.JButton searchButton;
+    private javax.swing.JButton searchButton2;
+    private javax.swing.JPanel searchPanel;
+    private javax.swing.JTable searchTable;
+    private javax.swing.JTextField searchTextField;
+    private javax.swing.JPanel sidesDesignPanel;
+    private javax.swing.JLabel welcomeHRManagerLabel2;
+    // End of variables declaration//GEN-END:variables
+}

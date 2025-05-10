@@ -1,0 +1,3 @@
+Department ID =0001, Department Name =IT
+Department ID =0002, Department Name =Finance
+Department ID =0003, Department Name =HR

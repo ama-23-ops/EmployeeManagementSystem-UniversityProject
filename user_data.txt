@@ -1,0 +1,5 @@
+UserName =sahan, email =sahan@gmail.com, Role =HR Manager, Password =124th
+UserName =kumara, email =kumara@gmail.com, Role =HR Assistant, Password =125ut
+UserName =sashi, email =sashi@gmail.com, Role =HR Manager, Password =456rt
+UserName =parami, email =parami@gmail.com, Role =HR Assistant, Password =tg678
+UserName =Kenula, email =kenula@gmail.com, Role =HR Assistant, Password =wr456

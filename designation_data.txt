@@ -1,0 +1,3 @@
+Designation ID =0001, Designation Name =Teacher
+Designation ID =0002, Designation Name =Accountant
+Designation ID =0003, Designation Name =Software Engineer
